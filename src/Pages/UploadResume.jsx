@@ -15,7 +15,7 @@ export const UploadResume = () => {
     axios.defaults.withCredentials = true
     const tokenChecker = async () => {
         try {
-            const res = await axios.get(`http://localhost:5500/getemployeedetails`)
+            const res = await axios.get(`https://portfolio-backend-fkgh.onrender.com/getemployeedetails`)
             if (!res.data.Token) {
                 localStorage.clear()
                 nav('/')
@@ -45,7 +45,7 @@ export const UploadResume = () => {
             formdata.append('file', file)
             formdata.append('title', 'Resume')
 
-            axios.put(`http://localhost:5500/uploadresume`, formdata)
+            axios.put(`https://portfolio-backend-fkgh.onrender.com/uploadresume`, formdata)
                 .then(res => {
                     toast(res.data.Msg)
                     setResumepath(res.data.ResumePath)
@@ -61,7 +61,7 @@ export const UploadResume = () => {
     }
 
     const RemoveResume = () => {
-        axios.delete(`http://localhost:5500/removeresume`)
+        axios.delete(`https://portfolio-backend-fkgh.onrender.com/removeresume`)
             .then(res => toast(res.data.Msg))
             .catch(er => console.log(er))
     }

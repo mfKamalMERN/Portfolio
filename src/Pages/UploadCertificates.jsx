@@ -18,7 +18,7 @@ export const UploadCertificates = () => {
     axios.defaults.withCredentials = true
     const tokenChecker = async () => {
         try {
-            const res = await axios.get(`http://localhost:5500/getemployeedetails`)
+            const res = await axios.get(`https://portfolio-backend-fkgh.onrender.com/getemployeedetails`)
             if (!res.data.Token) {
                 localStorage.clear()
                 toast("You are not logged In")
@@ -59,7 +59,7 @@ export const UploadCertificates = () => {
             }
             formdata.append('title', title)
 
-            axios.post(`http://localhost:5500/uploadcertificates`, formdata)
+            axios.post(`https://portfolio-backend-fkgh.onrender.com/uploadcertificates`, formdata)
                 .then(res => {
                     toast(res.data.Msg)
                     setCertificates(res.data.Certificates)
@@ -72,7 +72,7 @@ export const UploadCertificates = () => {
 
     const RemoveDoc = (dpath) => {
         const docpath = dpath
-        axios.put(`http://localhost:5500/removecertificate`, { docpath })
+        axios.put(`https://portfolio-backend-fkgh.onrender.com/removecertificate`, { docpath })
             .then(res => toast(res.data.Msg))
             .catch(er => console.log(er))
     }
@@ -85,7 +85,7 @@ export const UploadCertificates = () => {
             fd.append('file', file)
 
             try {
-                const res = await axios.put(`http://localhost:5500/updatedoc/${id}`, fd)
+                const res = await axios.put(`https://portfolio-backend-fkgh.onrender.com/updatedoc/${id}`, fd)
                 toast(res.data.Msg)
                 setStatus(!status)
                 setFile(null)

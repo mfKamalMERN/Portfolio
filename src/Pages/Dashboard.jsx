@@ -21,7 +21,7 @@ export const Dashboard = () => {
 
     axios.defaults.withCredentials = true
     const tokenChecker = () => {
-        axios.get(`http://localhost:5500/getemployeedetails`)
+        axios.get(`https://portfolio-backend-fkgh.onrender.com/getemployeedetails`)
             .then(res => {
                 if (!res.data.Token) {
                     localStorage.clear()
@@ -48,7 +48,7 @@ export const Dashboard = () => {
     const UpdateSkill = async () => {
         if (skills.trim() === "") toast("Skillset is empty")
         else {
-            axios.put(`http://localhost:5500/addskills`, { skills })
+            axios.put(`https://portfolio-backend-fkgh.onrender.com/addskills`, { skills })
                 .then(res => {
                     toast(res.data.Msg)
                     setSkills("")
@@ -74,7 +74,7 @@ export const Dashboard = () => {
         setQstatus(true)
         setUdegree(true)
 
-        axios.get(`http://localhost:5500/getdegree/${degreeid}`)
+        axios.get(`https://portfolio-backend-fkgh.onrender.com/getdegree/${degreeid}`)
             .then(res => {
                 const tqual = res.data.TargetQual
                 setDegreename(tqual.Degree)
@@ -96,7 +96,7 @@ export const Dashboard = () => {
             formdata.append('percentage', percentage)
 
             try {
-                const res = await axios.post(`http://localhost:5500/addqualification`, formdata)
+                const res = await axios.post(`https://portfolio-backend-fkgh.onrender.com/addqualification`, formdata)
 
                 if (res.data.ValidationError) {
                     res.data.ActError.map((e) => toast(e.msg))
@@ -120,7 +120,7 @@ export const Dashboard = () => {
 
     const RemoveDegree = (degreeid) => {
         if (window.confirm("Remove this degree?")) {
-            axios.delete(`http://localhost:5500/removedegree/${degreeid}`)
+            axios.delete(`https://portfolio-backend-fkgh.onrender.com/removedegree/${degreeid}`)
                 .then(res => toast(res.data.Msg))
                 .catch(er => console.log(er))
         }
@@ -136,7 +136,7 @@ export const Dashboard = () => {
             formdata.append('doc', doc)
 
             try {
-                const res = await axios.put(`http://localhost:5500/updatedegree/${DID}`, formdata)
+                const res = await axios.put(`https://portfolio-backend-fkgh.onrender.com/updatedegree/${DID}`, formdata)
 
                 if (res.data.ValidationError) {
                     res.data.ActError.map((e) => toast(e.msg))

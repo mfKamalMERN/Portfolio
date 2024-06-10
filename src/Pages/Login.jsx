@@ -15,11 +15,11 @@ export const Login = () => {
     axios.defaults.withCredentials = true
     const getEmployeeDetails = async () => {
         try {
-            const res = await axios.get(`http://localhost:5500/getemployeedp`)
+            const res = await axios.get(`https://portfolio-backend-fkgh.onrender.com/getemployeedp`)
             if (!res.data.Token) {
                 localStorage.clear()
                 setDp(res.data.DP)
-                nav('/')
+                // nav('/')
             }
             else {
 

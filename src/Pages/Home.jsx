@@ -13,7 +13,7 @@ export const Home = () => {
 
     const tokenChecker = async () => {
         try {
-            const res = await axios.get("http://localhost:5500/getemployeedetails")
+            const res = await axios.get("https://portfolio-backend-fkgh.onrender.com/getemployeedetails")
             if (!res.data.Token) {
                 localStorage.clear()
                 toast("You are not logged In")
@@ -93,6 +93,7 @@ export const Home = () => {
                         </div>
                     ))
             }
+                Hi
         </>
     )
 }

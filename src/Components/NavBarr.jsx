@@ -18,7 +18,7 @@ export const NavBarr = ({ dp, login }) => {
     const LogOut = () => {
         if (window.confirm("Log Out?")) {
             localStorage.clear()
-            axios.get(`http://localhost:5500/logout`)
+            axios.get(`https://portfolio-backend-fkgh.onrender.com/logout`)
                 .then(res => {
                     nav('/')
                     toast(res.data.Msg)
@@ -28,7 +28,7 @@ export const NavBarr = ({ dp, login }) => {
     }
 
     const OpenResume = () => {
-        axios.get(`http://localhost:5500/getresume`)
+        axios.get(`https://portfolio-backend-fkgh.onrender.com/getresume`)
             .then(res => {
                 if (res.data.ResumePath === "") toast(`No Resume Found`)
                 else window.open(res.data.ResumePath)

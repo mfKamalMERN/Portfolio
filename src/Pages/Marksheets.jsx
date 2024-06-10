@@ -12,10 +12,10 @@ const Marksheets = () => {
     axios.defaults.withCredentials = true
     const tokenChecker = async () => {
         try {
-            const res = await axios.get('http://localhost:5500/getemployeedetails')
+            const res = await axios.get('https://portfolio-backend-fkgh.onrender.com/getemployeedetails')
             if (res.data.Token) {
                 setEmployee(res.data.EmployeeDetails)
-                const response = await axios.get('http://localhost:5500/getmarksheets')
+                const response = await axios.get('https://portfolio-backend-fkgh.onrender.com/getmarksheets')
                 setMarksheetdata(response.data.MarksheetData)
 
             }

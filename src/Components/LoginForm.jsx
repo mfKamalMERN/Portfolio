@@ -18,7 +18,7 @@ export default function LoginForm({ dp, register }) {
     const submit = (e) => {
         e.preventDefault()
 
-        axios.post(`http://localhost:5500/login`, { email, password })
+        axios.post(`https://portfolio-backend-fkgh.onrender.com/login`, { email, password })
             .then(res => {
                 if (res.data.ValidationError) {
                     setBe(res.data.ActError)
@@ -51,7 +51,7 @@ export default function LoginForm({ dp, register }) {
 
     const registerAsrecruiter = (e) => {
         e.preventDefault()
-        axios.post(`http://localhost:5500/registerasrecruiter`, { name, rcontact, remail, rpwd, rorg, workmode })
+        axios.post(`https://portfolio-backend-fkgh.onrender.com/registerasrecruiter`, { name, rcontact, remail, rpwd, rorg, workmode })
             .then(res => {
                 toast(res.data.Msg)
             })
