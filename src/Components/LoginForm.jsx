@@ -83,7 +83,7 @@ export default function LoginForm({ dp, register }) {
                                     </label>
                                     <br />
 
-                                    <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                    <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} style={{ backgroundColor: "black", color: "wheat" }} />
                                     <br />
                                     <br />
 
